@@ -32,7 +32,7 @@ onMount(async () => {
 
 let username = ''
 let password = ''
-
+let cklicked = false
 
 let loading = false;
 let login = false
@@ -53,12 +53,18 @@ let login = false
                 <input bind:value={username} type="text" placeholder="username" class="m-2 hover:bg-white hover:text-gray-800" />
                 <input bind:value={password} type="password" placeholder="password" class="m-2 hover:bg-white hover:text-gray-800" />
             </form>
+            {#if !cklicked}
             <button on:click={async()=>{
+                cklicked = true
                const auth_data = await authwithpassword(username,password)
+               
                 if(auth_data){
                      login = true
                 }
+                cklicked = false
             }}  class="m-2 hover:bg-white hover:text-gray-800 bg-transparent">Login</button>
+                 <!-- content here -->
+            {/if}
             <button on:click={async()=>{
                 const register_data = await register(username,password)
                 if(register_data){

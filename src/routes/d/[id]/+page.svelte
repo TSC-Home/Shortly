@@ -48,9 +48,9 @@
      <div>
                   
         <div class="flex justify-between items-center">
-            <p on:click={()=>{
+            <!-- <p on:click={()=>{
                 goto('/')
-            }} class="icons text-4xl text-white no-underline hover:no-underline">arrow_back</p>
+            }} class="hidden md:inline-block lg:inline-block xl:inline-block 2xl:icons text-4xl text-white no-underline hover:no-underline">arrow_back</p> -->
             <p class="text-5xl uppercase">{id_data.name}</p>
             <p class=" text-4xl text-white no-underline hover:no-underline"> </p>
         </div>

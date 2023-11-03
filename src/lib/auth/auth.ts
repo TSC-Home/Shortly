@@ -19,6 +19,7 @@ try {
     });
     return true;
 } catch (error) {
+    alert('Invalid username or password')
     return false;
 }}
 
@@ -32,6 +33,7 @@ export async function register(username: string, password: string){
     });
         return true;
     } catch (error) {
+        alert('Something went wrong please try again')
         return false;
     }
 
