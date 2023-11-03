@@ -1,5 +1,5 @@
 
-# SHOTIFY | SELF HOSTE URL-SHORTER
+# SHORTIFY | SELF HOSTE URL-SHORTER
 
 Welcome to Shotify, your easy-to-use URL shortener! Quickly shorten your long links with a single click, making them perfect for sharing on social media, emails, or anywhere you need a concise link. Try it now!
 
