@@ -47,7 +47,7 @@ let login = false
         {#if login}
 <slot></slot>
         {:else}
-        <div class="flex justify-center items-center">
+        <div class="">
             <h1>AUTH</h1>
             <form class="">
                 <input bind:value={username} type="text" placeholder="username" class="m-2 hover:bg-white hover:text-gray-800" />

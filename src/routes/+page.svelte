@@ -100,7 +100,7 @@ onMount(async () => {
     <button on:click={()=>{
         logout()
     }} class="rounded-full flex justify-center bg-transparent ">
-        <div class="icons  flex justify-center items-center">
+        <div class="icons flex justify-center items-center">
             meeting_room
         </div>
     </button>
