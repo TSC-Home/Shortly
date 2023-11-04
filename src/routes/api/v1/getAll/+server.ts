@@ -20,10 +20,10 @@ export const GET = async ({request}) => {
             return new Response('no corect api key ', { status: 400 });
         }
         const urls:any = await pb.collection('url').getFullList();
-
+        console.log(urls);
         urls.forEach((item:any) => {
-            if(urls.user !== xUser){
-                return
+            if(item.user !== xUser){
+                console.log(item.user, xUser);
             }else{
                 short_list.push({
                     id: item.id,
