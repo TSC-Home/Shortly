@@ -5,7 +5,7 @@
   <div class="static bg-[#18181b] bg_dots" >
     <div class=" h-screen  ">
       <div class="absolute inset-0 flex items-center justify-center z-10">
-        <div class="p-4">
+        <div class="">
           <slot></slot>
         </div>
       </div>

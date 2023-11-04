@@ -57,7 +57,32 @@ onMount(async () => {
 
 
 <title>Shortly | Home</title>
-<h1>SHORTLY</h1>
+<div class="pt-4 pr-4 pl-4" >
+
+<div class="absolute top-0 z-50 w-full left-0">
+    <div class="flex justify-between p-4">
+        <div class="">
+            <button on:click={()=>{
+                logout()
+            }} class="rounded-full flex justify-center bg-transparent ">
+                <div class="icons flex justify-center items-center">
+                    meeting_room
+                </div>
+            </button>
+        </div>
+        <div class="">
+            <button on:click={()=>{
+                goto('/profil')
+            }} class="rounded-full flex justify-center bg-transparent ">
+                <div class="icons flex justify-center items-center">
+                    badge
+                </div>
+            </button>
+        </div>
+    </div>
+</div>
+
+<h1 class="text-center text-5xl">SHORTLY</h1>
 <div class="form-group">
     <label for="paperInputs2">Enter a URL</label>
     <form on:submit|preventDefault={async()=>{
@@ -82,7 +107,7 @@ onMount(async () => {
   </div>
   <div class="mt-10">
       <label for="paperInputs2">Shorted URLS</label>
-      <div class="form-group  h-72 w-auto overflow-y-scroll">
+      <div class="form-group h-52 md:h-72 w-72 overflow-y-scroll">
       {#if loading}
          {#each shortedurls as item}
         <button on:click={()=>{
@@ -94,29 +119,10 @@ onMount(async () => {
       {/if}
         </div>
   </div>
-  <div class=" lg:flex fixed top-0 right-0 z-50 p-4">
-    <button on:click={()=>{
-        goto('/profil')
-    }} class="rounded-full flex justify-center bg-transparent ">
-        <div class="icons flex justify-center items-center">
-            badge
-        </div>
-    </button>
-</div>
-<div class=" lg:flex fixed top-0 left-0 z-50 p-4">
-    <button on:click={()=>{
-        logout()
-    }} class="rounded-full flex justify-center bg-transparent ">
-        <div class="icons flex justify-center items-center">
-            meeting_room
-        </div>
-    </button>
 </div>
 <style>
     ::-webkit-scrollbar {
   display: none;
 }
-
-
 
 </style>
