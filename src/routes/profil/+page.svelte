@@ -11,11 +11,13 @@
         password: '',
         passwordConfirm: ''
     }
+    let api_key = ''
     let qrCodeBlob:any
 
     onMount(async () => {
         const record = await pb.collection('users').getOne($authstore.user);
         data.name = record.username
+        api_key = record.api_key
         loading = true
 
     });
@@ -63,6 +65,22 @@
                <button class="bg-transparent hover:bg-white hover:text-gray-800 w-full focus-visible:bg-white focus-visible:text-gray-800 " type="submit">Save</button>
               </div>
          </form>
+         <div>
+            <p class="border h-0.5 border-transparent mt-5" ></p>
+            <button on:click={async()=>{
+                const record = await pb.collection('users').update($authstore.user, {
+                    api_key: Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
+                })
+                api_key = record.api_key
+            }} class="bg-transparent hover:bg-white mt-2 hover:text-gray-800 w-full focus-visible:bg-white focus-visible:text-gray-800 " >Genarate API KEY</button>
+            {#if api_key != ''} 
+                 <!-- content here -->
+                 <div class="mt-2">API KEY: <p class="border mt-1 blur-sm hover:blur-none " >{api_key}</p> </div>
+                 <button on:click={async()=>{
+                     navigator.clipboard.writeText(api_key)
+                 }} class="bg-transparent hover:bg-white mt-2 h-3 flex justify-center items-center hover:text-gray-800 w-full focus-visible:bg-white focus-visible:text-gray-800 " >Copy API KEY</button>
+            {/if}
+         </div>
      </div>
         {/if}
 {:else}
