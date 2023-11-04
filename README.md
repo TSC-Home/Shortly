@@ -99,7 +99,7 @@ curl --request PATCH \
 
 ## Roadmap
 
-We're open to your ideas! Please create an issue if you have suggestions.
+We welcome your suggestions! If you have any ideas, please feel free to create an issue. If you have any ideas, please do not hesitate to create a topic.
 
 - short urls ✔
 
