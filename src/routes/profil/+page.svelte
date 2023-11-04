@@ -9,7 +9,7 @@ let loading = false
 let data: any = {
     name: '',
     password: '',
-    passwordConfirm: ''
+    passwordOld: ''
 }
 let api_key = ''
 let qrCodeBlob: any
@@ -48,7 +48,8 @@ function containsTempUser(name: string) {
             const record = await pb.collection('users').update($authstore.user, {
                 username: data.name,
                 password: data.password,
-                passwordConfirm: data.passwordConfirm})
+                passwordOld: data.passwordOld,
+                passwordConfirm: data.password})
             } catch (error) {
             alert('failed to save')
             }
@@ -62,8 +63,8 @@ function containsTempUser(name: string) {
                 <input class="input-block  hover:bg-white hover:text-gray-800 w-full focus-visible:bg-white focus-visible:text-gray-800 " bind:value={data.password} type="text" >
             </div>
             <div class="mt-2">
-                <label for="passConfirm">Password Confirm</label>
-                <input class="input-block  hover:bg-white hover:text-gray-800 w-full focus-visible:bg-white focus-visible:text-gray-800 " bind:value={data.passwordConfirm} type="text">
+                <label for="passConfirm">Old Password</label>
+                <input class="input-block  hover:bg-white hover:text-gray-800 w-full focus-visible:bg-white focus-visible:text-gray-800 " bind:value={data.passwordOld} type="text">
             </div>
             <div class="mt-2">
                 <button class="bg-transparent hover:bg-white hover:text-gray-800 w-full focus-visible:bg-white focus-visible:text-gray-800 " type="submit">Save</button>

@@ -8,6 +8,8 @@ let loading = false
 let id_data: any = {}
 let qrCodeBlob: any
 
+let deleated = false
+
 onMount(async () => {
     const records: any = await pb.collection('url').getOne($page.params.id)
     id_data = records
@@ -37,7 +39,10 @@ onDestroy(async () => {
             public: id_data.public
         });
     } catch (err) {
-        alert('failed to save')
+        if(deleated != true){
+            alert('failed to save')
+        }
+
     }
 })
 </script>
@@ -106,6 +111,11 @@ onDestroy(async () => {
                 }}>download</button>
         </div>
     </form>
+    <button class=" text-red-400 border-red-400 icons w-full mt-2  py-0.5 bg-transparent" on:click={()=>{
+        deleated = true
+        pb.collection('url').delete(id_data.id)
+        goto('/')
+    }} >Delete</button>
     {:else}
     <h1>Loading</h1>
     {/if}
