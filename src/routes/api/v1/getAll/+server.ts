@@ -19,16 +19,18 @@ export const GET = async ({request}) => {
         if (record.api_key !== xKey) {
             return new Response('no corect api key ', { status: 400 });
         }
-        const urls:any = await pb.collection('url').getFullList({
-            user: xUser,
-        });
+        const urls:any = await pb.collection('url').getFullList();
 
         urls.forEach((item:any) => {
-            short_list.push({
-                id: item.id,
-                short: item.short,
-                name: item.name,
-            });
+            if(urls.user !== xUser){
+                return
+            }else{
+                short_list.push({
+                    id: item.id,
+                    short: item.short,
+                    name: item.name,
+                });
+            }
         });
         // console.log(short_list);
         return new Response(JSON.stringify(short_list),{ status: 200 });
