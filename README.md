@@ -93,7 +93,7 @@ curl --request PATCH \
   --header 'x_url: [Your_new_url | not required]'
 
 ```
-
+**If you are self-hosting the platform, follow these steps using your own URL.**
 
 
 
