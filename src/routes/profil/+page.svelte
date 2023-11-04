@@ -45,7 +45,10 @@ function containsTempUser(name: string) {
         <p class="border h-0.5 border-transparent mt-5" ></p>
         <form on:submit|preventDefault={async()=>{
             try {
-            const record = await pb.collection('users').update($authstore.user, data)
+            const record = await pb.collection('users').update($authstore.user, {
+                username: data.name,
+                password: data.password,
+                passwordConfirm: data.passwordConfirm})
             } catch (error) {
             alert('failed to save')
             }
