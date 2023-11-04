@@ -11,22 +11,22 @@ export const DELETE = async ({request}) => {
 
     
     if (!xUser || !xKey) {
-        return new Response(' fail to get header x_user oder x_key', { status: 400 });
+        return new Response(' failed to get header x_user oder x_key', { status: 400 });
     }
     if (!xid) {
-        return new Response(' fail to get header x_id', { status: 400 });
+        return new Response(' failed to get header x_id', { status: 400 });
     }
     await pb.admins.authWithPassword(API_USER, API_PASS);
     try {
         const record = await pb.collection('users').getOne(xUser);
         if (record.api_key !== xKey) {
-            return new Response('no corect api key ', { status: 400 });
+            return new Response('Api key is incorrect ', { status: 400 });
         }
         const id_data = await pb.collection('url').getOne(xid);
         if(id_data.user !== xUser){
             return new Response(JSON.stringify({
                 id: xid,
-                message: 'cann not find id'
+                message: 'ID is incorrect'
             }), { status: 400 });
         }
         await pb.collection('url').delete(xid);
