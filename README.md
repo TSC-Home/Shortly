@@ -105,7 +105,7 @@ We're open to your ideas! Please create an issue if you have suggestions.
 
 - Qr-codes ✔
 
-- add pasword requierd links ⭕
+- add password requierd links ⭕
 
 - multi custome domain support ⭕
 
