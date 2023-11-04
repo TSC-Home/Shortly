@@ -44,26 +44,26 @@
 
 </script>
 {#if loading}
-     <!-- content here -->
-     <div>
+     
+     <title>Shortly | {id_data.name}</title>
+     <div class="h-fit ">
                   
-        <div class="flex justify-between items-center">
+        <div class="flex justify-center  items-center">
             <!-- <p on:click={()=>{
                 goto('/')
             }} class="hidden md:inline-block lg:inline-block xl:inline-block 2xl:icons text-4xl text-white no-underline hover:no-underline">arrow_back</p> -->
-            <p class="text-5xl uppercase">{id_data.name}</p>
-            <p class=" text-4xl text-white no-underline hover:no-underline"> </p>
+            <p class="text-4xl uppercase">{id_data.name}</p>
+
         </div>
-         <p class="border h-0.5 border-transparent mt-5" ></p>
-         <div class="mt-2 flex justify-center items-center ">
-             
-             <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
-             <code class="m-2" >{$page.url.origin}/r/{id_data.short}</code> <button class="text-white icons mb-2.5 h-3 border-none py-0.5 bg-transparent w-3" on:click={()=>{
-                 navigator.clipboard.writeText(`${$page.url.origin}/r/${id_data.short}`)
-             }}>content_copy</button>
+         <p class="border h-0.5 border-transparent mt-2" ></p>
+         <div class="mt-0.5 flex justify-between items-center flex-col  ">
+            <button popover-top="Cklick to Copy" class="text-white h-fit  outline-none bg-transparent w-fit " on:click={()=>{
+                navigator.clipboard.writeText(`${$page.url.origin}/r/${id_data.short}`)
+            }}>
+             <p class="m-1" >shortly.bytebridge.tech/r/{id_data.short}</p></button>
          </div>
          <p class="border h-0.5 border-transparent mt-2" ></p>
-         <form class="mt-5">
+         <form name="infoblock"  class="mt-5">
             <div>
                 <label for="name">Name</label>
                 <input class="input-block  hover:bg-white hover:text-gray-800 w-full focus-visible:bg-white focus-visible:text-gray-800" bind:value={id_data.name} type="text" >

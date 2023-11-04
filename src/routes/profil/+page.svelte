@@ -3,7 +3,7 @@
     import { pb } from "$lib/pb";
     import { goto } from '$app/navigation'
     import {page} from '$app/stores'
-	import { authstore } from "$lib/auth/auth";
+	import { authstore, logout } from "$lib/auth/auth";
     let slug = $page.params.id
     let loading = false
     let data:any = {
@@ -20,10 +20,21 @@
 
     });
 
+    function containsTempUser(name:string) {
+  return name.includes("shortlyTempUser");
+}
 
 </script>
+<title>Shortly | Profil</title>
 {#if loading}
-     <!-- content here -->
+     {#if containsTempUser(data.name)}
+         <div>
+            <p class="text-xl">Sorry you can not acces the profile settings as temp user.</p>
+            <button on:click={async()=>{
+                await logout()
+            }} class="bg-transparent hover:bg-white hover:text-gray-800 w-full focus-visible:bg-white focus-visible:text-gray-800 " >Register or Login</button>
+         </div>
+     {:else}
      <div>
         <div class="flex justify-between items-center">          
             <p class="text-5xl uppercase">Profile</p>
@@ -53,9 +64,11 @@
               </div>
          </form>
      </div>
+        {/if}
 {:else}
 <h1>Loading</h1>
 {/if}
+
 <div class=" lg:flex fixed top-0 left-0 z-50 p-4">
     <button on:click={()=>{
         goto('/')

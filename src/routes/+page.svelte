@@ -3,6 +3,12 @@ import { authstore, logout } from "$lib/auth/auth";
 import { pb } from "$lib/pb";
 import { onMount } from "svelte";
 import { goto } from '$app/navigation';
+
+
+
+
+
+
 let shortedurls:any[] = [];
 let loading = false;
 function generateShortUUID() {
@@ -43,13 +49,14 @@ onMount(async () => {
     }
     loading = true
 
+
 });
 
     let url = ''
 </script>
 
 
-
+<title>Shortly | Home</title>
 <h1>SHORTLY</h1>
 <div class="form-group">
     <label for="paperInputs2">Enter a URL</label>
@@ -80,7 +87,7 @@ onMount(async () => {
          {#each shortedurls as item}
         <button on:click={()=>{
             goto(`/d/${item.id}`)
-        }} class="w-full bg-transparent mt-2 hover:bg-white hover:text-gray-800" >{item.name}</button>
+        }} class="w-full bg-transparent mt-2 box hover:bg-white hover:text-gray-800" >{item.name}</button>
     
         
          {/each}
