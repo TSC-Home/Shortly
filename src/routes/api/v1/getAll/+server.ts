@@ -30,7 +30,7 @@ export const GET = async ({request}) => {
                 name: item.name,
             });
         });
-        console.log(short_list);
+        // console.log(short_list);
         return new Response(JSON.stringify(short_list),{ status: 200 });
 
         
