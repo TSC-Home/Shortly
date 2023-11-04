@@ -73,7 +73,7 @@ function containsTempUser(name: string) {
                 api_key: Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
                 })
                 api_key = record.api_key
-                }} class="bg-transparent hover:bg-white mt-2 hover:text-gray-800 w-full focus-visible:bg-white focus-visible:text-gray-800 " >Genarate API KEY</button>
+                }} class="bg-transparent hover:bg-white mt-2 hover:text-gray-800 w-full focus-visible:bg-white focus-visible:text-gray-800 " >Generate API KEY</button>
             {#if api_key != ''}
             <!-- content here -->
             <div class="mt-2">API KEY: <p class="border mt-1 blur-sm hover:blur-none " >{api_key}</p> </div>
