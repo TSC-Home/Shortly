@@ -24,7 +24,7 @@ try {
 }}
 
 export async function register(username: string, password: string){
-    console.log('registering',username,password)
+    
     try {
         const authData = await pb.collection('users').create({
         username: username,
