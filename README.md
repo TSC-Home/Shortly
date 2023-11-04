@@ -52,8 +52,8 @@ We're open to your ideas! Please create an issue if you have suggestions.
 
 
 ## Live Version
-Coming Soon! We'll be back online as soon as Cloudflare is up and running again. Thank you for your patience!
-<!-- [Here]() -->
+<!-- Coming Soon! We'll be back online as soon as Cloudflare is up and running again. Thank you for your patience! -->
+[Here](https://shortly.bytebridge.tech/)
 
 
 ## License
