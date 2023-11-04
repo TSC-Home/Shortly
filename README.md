@@ -36,6 +36,67 @@ To build the project:
 ```bash
   pnpm run build
 ```
+
+
+## API Endpoints
+1. Make an account on [Shortly](https://shortly.bytebridge.tech/) and log in.
+2. Get your userID [here](https://shortly.bytebridge.tech/api/v1/getUserId)
+3. To generate an API key, go to Profile Settings and click **Generate API KEY**.
+
+### Create Entry
+```bash
+curl --request POST \
+  --url https://shortly.bytebridge.tech/api/v1/create \
+  --header 'x_user: [Your_Username]' \
+  --header 'x_key: [Your_API_Key]' \
+  --header 'x_url: [Your_Url]'
+  ````
+
+
+### Delete Entry
+```bash
+curl --request DELETE \
+  --url https://shortly.bytebridge.tech/api/v1/delete \
+  --header 'x_user: [Your_Username]'\
+  --header 'x_key: [Your_API_Key]' \
+  --header 'x_id: [Your_Entry_Id]'
+  ```
+You will receive your entry ID when you create an entry.
+
+
+### Get One Entry
+``` bash 
+curl --request GET \
+  --url https://shortly.bytebridge.tech/api/v1/getOne \
+  --header 'x_user: [Your_Username]' \
+  --header 'x_key: [Your_API_Key]' \
+  --header 'x_id: [Your_Entry_Id]'
+```
+
+
+### Get All  Entries
+```bash
+curl --request GET \
+  --url https://shortly.bytebridge.tech/api/v1/getAll \
+  --header 'x_key: [Your_API_Key]' \
+  --header 'x_user: [Your_Username]'
+  ```
+
+### Update Entry
+```bash
+curl --request PATCH \
+  --url https://shortly.bytebridge.tech/api/v1/update \
+  --header 'x_user: [Your_Username]'\
+  --header 'x_key: [Your_API_Key]' \
+  --header 'x_id: [Your_Entry_Id]' \
+  --header 'x_name: [Your_new_Entryname | not required]' \
+  --header 'x_url: [Your_new_url | not required]'
+
+```
+
+
+
+
 ## Roadmap
 
 We're open to your ideas! Please create an issue if you have suggestions.
