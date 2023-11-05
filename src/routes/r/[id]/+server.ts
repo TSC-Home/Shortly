@@ -33,7 +33,7 @@ export const GET = async ({ params }) => {
                     link.analytics.push(click.id);
                     console.log(link.analytics);
                     const update = await pb.collection('url').update(item.id, {
-                        anylytics: item.analytics,
+                        anylytics: link.analytics,
                     })
                     return Response.redirect(item.url, 301);
                 }
