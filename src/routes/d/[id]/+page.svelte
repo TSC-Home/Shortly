@@ -9,10 +9,12 @@ let id_data: any = {}
 let qrCodeBlob: any
 
 let deleated = false
+let clicks:any[] = []
 
 onMount(async () => {
     const records: any = await pb.collection('url').getOne($page.params.id)
     id_data = records
+    clicks = id_data.analytics
     loading = true
 
 });
@@ -69,10 +71,13 @@ onDestroy(async () => {
     </div>
     <p class="border h-0.5 border-transparent mt-2" ></p>
     <div class="mt-0.5 flex justify-between items-center flex-col  ">
-        <button popover-top="Cklick to Copy" class="text-white h-fit  outline-none bg-transparent w-fit " on:click={()=>{
+        <button popover-top="Cklick to Copy" class="text-white h-fit  outline-none bg-transparent w-full " on:click={()=>{
             navigator.clipboard.writeText(`${$page.url.origin}/r/${id_data.short}`)
             }}>
             <p class="m-1" >shortly.bytebridge.tech/r/{id_data.short}</p></button>
+            <button class="  mt-2 w-full  py-0.5 bg-transparent" on:click={()=>{
+                alert('analytics page coming soon clicks are already tracked')
+            }} >{clicks.length} clicks</button>
     </div>
     <p class="border h-0.5 border-transparent mt-2" ></p>
     <form name="infoblock"  class="mt-5">
