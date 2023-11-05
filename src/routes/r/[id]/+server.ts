@@ -21,13 +21,17 @@ export const GET = async ({ params }) => {
                         }
                     );
                 }else{
+                    const link = await pb.collection('url').getOne(item.id);
                     const click = await pb.collection('analytics').create({
                         short: item.short,
                     })
-                    if (item.analytics === undefined) {
-                        item.analytics = [];
+                    console.log(link);
+                    if (link.analytics === undefined) {
+                        link.analytics = [];
                     }
-                    item.analytics.push(click.id);
+                    console.log(link.analytics);
+                    link.analytics.push(click.id);
+                    console.log(link.analytics);
                     const update = await pb.collection('url').update(item.id, {
                         anylytics: item.analytics,
                     })
