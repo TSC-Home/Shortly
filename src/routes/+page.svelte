@@ -14,7 +14,7 @@ let loading = false;
 function generateShortUUID() {
   let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
   let shortUUID = '';
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < 7; i++) {
     let randomIndex = Math.floor(Math.random() * characters.length);
     shortUUID += characters[randomIndex];
   }

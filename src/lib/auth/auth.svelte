@@ -51,7 +51,7 @@ let username = ''
 let password = ''
 let cklicked = false
 
-let loading = false;
+let loading = true;
 let login = false
 </script>
 <html lang="en" class="dark">
@@ -75,7 +75,7 @@ let login = false
             }}>
             
                 <input bind:value={username} type="text" placeholder="username" class="m-2 hover:bg-white hover:text-gray-800" required />
-                <input bind:value={password} type="password" placeholder="password" class="m-2 hover:bg-white hover:text-gray-800" required />
+                <input bind:value={password} type="password" placeholder="password" minlength="8" class="m-2 hover:bg-white hover:text-gray-800" required />
             </form >
             {#if !cklicked}
             <button type="submit" on:click={async()=>{

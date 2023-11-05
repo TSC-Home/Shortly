@@ -21,7 +21,16 @@ export const GET = async ({ params }) => {
                         }
                     );
                 }else{
-                    console.log(item.url);
+                    const click = await pb.collection('analytics').create({
+                        short: item.short,
+                    })
+                    if (item.analytics === undefined) {
+                        item.analytics = [];
+                    }
+                    item.analytics.push(click.id);
+                    const update = await pb.collection('url').update(item.id, {
+                        anylytics: item.analytics,
+                    })
                     return Response.redirect(item.url, 301);
                 }
             }
